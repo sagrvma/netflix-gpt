@@ -27,3 +27,16 @@ npm i -D eslint @eslint/js eslint-plugin-react-hooks eslint-plugin-react-refresh
 - `main.css`, `App.css`
 - Scripts: `dev`, `build`, `lint`, `preview` (in `package.json`)
 - `.gitignore`
+
+## 3. Third Commit
+
+## Commands Used
+
+```
+npm i react-router
+```
+
+### Files and Configurations Added
+
+- Added basic login and browse components to test routing
+- Created seperate file `imageURLS.js` for image urls.
