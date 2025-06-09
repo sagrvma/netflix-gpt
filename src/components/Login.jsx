@@ -108,11 +108,14 @@ const Login = () => {
           <button type="submit" className="login-button">
             {isSignUp ? "Sign Up" : "Sign In"}
           </button>
-          <p onClick={handleSignUp} className="signup-text">
-            {isSignUp
-              ? "Already a user? Sign In now."
-              : "New to Netflix? Sign up now."}
-          </p>
+          <div className="signup-text-container">
+            <span className="signup-text-static">
+              {isSignUp ? "Already a user? " : "New to Netflix? "}
+            </span>
+            <span className="signup-text-clickable" onClick={handleSignUp}>
+              {isSignUp ? "Sign in." : "Sign up."}
+            </span>
+          </div>
         </form>
       </div>
     </div>

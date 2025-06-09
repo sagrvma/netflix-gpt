@@ -1,98 +1,67 @@
 .login {
+  border: 5px solid black;
+  background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/6863f6e8-d419-414d-b5b9-7ef657e67ce4/web/IN-en-20250602-TRIFECTA-perspective_27a3fdfa-126f-4148-b153-55d60b51be6a_large.jpg");
+  background-position: center;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/6863f6e8-d419-414d-b5b9-7ef657e67ce4/web/IN-en-20250602-TRIFECTA-perspective_27a3fdfa-126f-4148-b153-55d60b51be6a_large.jpg");
 }
 
 .login-container {
-  flex-grow: 1;
+  flex: 1;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
 .login-form {
-  border-radius: 8px;
-  background-color: rgba(0, 0, 0, 0.624);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  width: 25vw;
-  height: auto;
-  padding: 1.5em;
+  color: white;
+  padding: 3rem;
+  background-color: rgba(0, 0, 0, 0.624);
+  border-radius: 8px;
 }
 
 .login-heading {
-  color: rgb(224, 224, 224);
   font-size: 3rem;
-  font-family: "Gilroy-Bold", sans-serif;
-  align-self: flex-start;
-  margin-left: 0.2em;
-}
-
-.login-form > * {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  min-width: 0;
-}
-
-.login-form > * > input {
-  width: 100%;
-  box-sizing: border-box;
 }
 
 .login-form input {
-  width: 100%;
-  padding: 0.5em;
-  margin: 0.5em 0;
-  background-color: rgba(53, 53, 53, 0.624);
+  font-size: 1.5rem;
+  padding: 0.6rem;
+  margin: 0.5rem 0;
   border: none;
-  color: rgb(229, 229, 229);
-  font-size: 1.2rem;
+  background: rgb(55, 55, 55);
+  color: white;
+  border-radius: 5px;
 }
 
-.login-form button {
-  width: 100%;
+.login-button {
+  font-size: 1.5rem;
+  padding: 0.5rem;
   background-color: red;
-  font-family: "Gilroy-Bold", sans-serif;
-  font-size: 1.4rem;
   color: white;
-  border: 1px solid black;
-  padding: 0.5em;
   cursor: pointer;
-  margin: 1em 0;
-  border-radius: 6%;
-  transition: background-color 0.2s ease;
-}
-
-.login-form button:hover {
-  background-color: rgb(164, 0, 0);
-}
-
-.signup-text {
-  color: white;
-  font-family: "Gilroy-Medium", sans-serif;
-  font-size: 1em;
-  cursor: pointer;
+  margin-top: 0.5rem;
+  border: none;
+  border-radius: 5px;
 }
 
 .validation-error-message {
   color: red;
-  align-self: flex-start;
-  font-family: "Gilroy-Medium";
-  min-height: 16px;
 }
 
-.signup-text {
-  color: white;
-  font-family: "Gilroy-Medium", sans-serif;
-  font-size: 1em;
+.signup-text-container {
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.signup-text-clickable {
   cursor: pointer;
-  text-align: center; /* Add this to center the text */
-  width: 100%; /* Ensure it takes full width */
-  align-self: center; /* Center the element itself */
+}
+
+.signup-text-clickable:hover {
+  text-decoration: underline;
 }
