@@ -22,15 +22,27 @@
   align-items: center;
   width: 25vw;
   height: auto;
-  padding: 1em;
+  padding: 1.5em;
 }
 
 .login-heading {
   color: rgb(224, 224, 224);
-  font-size: 1.5rem;
+  font-size: 3rem;
   font-family: "Gilroy-Bold", sans-serif;
   align-self: flex-start;
   margin-left: 0.2em;
+}
+
+.login-form > * {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+}
+
+.login-form > * > input {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .login-form input {
@@ -40,18 +52,20 @@
   background-color: rgba(53, 53, 53, 0.624);
   border: none;
   color: rgb(229, 229, 229);
+  font-size: 1.2rem;
 }
 
 .login-form button {
   width: 100%;
   background-color: red;
   font-family: "Gilroy-Bold", sans-serif;
+  font-size: 1.4rem;
   color: white;
   border: 1px solid black;
   padding: 0.5em;
   cursor: pointer;
   margin: 1em 0;
-  border-radius: 3px;
+  border-radius: 6%;
   transition: background-color 0.2s ease;
 }
 
@@ -62,6 +76,23 @@
 .signup-text {
   color: white;
   font-family: "Gilroy-Medium", sans-serif;
-  font-size: 0.8rem;
+  font-size: 1em;
   cursor: pointer;
+}
+
+.validation-error-message {
+  color: red;
+  align-self: flex-start;
+  font-family: "Gilroy-Medium";
+  min-height: 16px;
+}
+
+.signup-text {
+  color: white;
+  font-family: "Gilroy-Medium", sans-serif;
+  font-size: 1em;
+  cursor: pointer;
+  text-align: center; /* Add this to center the text */
+  width: 100%; /* Ensure it takes full width */
+  align-self: center; /* Center the element itself */
 }

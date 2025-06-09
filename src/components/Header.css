@@ -4,10 +4,11 @@
   background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0.8),
-    /* Darker at the top */ rgba(0, 0, 0, 0.1) /* Lighter at the bottom */
+    rgba(0, 0, 0, 0.1)
   );
 }
 
 .header-logo {
-  height: 2rem;
+  height: 3rem;
+  cursor: pointer;
 }
