@@ -19,7 +19,9 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    validateForm();
+    if (validateForm()) {
+      console.log("Form is valid, proceeding towards submission.");
+    }
   };
 
   const validateForm = () => {
@@ -31,6 +33,12 @@ const Login = () => {
 
     if (!password.current.value) {
       newErrors.password = "Enter password.";
+    } else {
+      const passwordError = validatePassword(password.current.value);
+
+      if (passwordError != null) {
+        newErrors.password = passwordError;
+      }
     }
 
     if (isSignUp) {
@@ -50,6 +58,31 @@ const Login = () => {
     }
 
     setErrors(newErrors);
+
+    return Object.keys(newErrors).length === 0; //if true, means no errors
+  };
+
+  const validatePassword = (password) => {
+    if (password.length < 8) {
+      return "Password must be atleast 8 characters long.";
+    }
+
+    if (!/(?=.*[a-z])/.test(password)) {
+      return "Password must contain atleast one lowercase letter.";
+    }
+
+    if (!/(?=.*[A-Z])/.test(password)) {
+      return "Password must contain atleast one uppercase letter.";
+    }
+
+    if (!/(?=.*\d)/.test(password)) {
+      return "Password must contain atleast one number.";
+    }
+
+    if (!/(?=.*[@$!%*?&])/.test(password)) {
+      return "Password must contain at least one special character.";
+    }
+    return null;
   };
 
   return (
