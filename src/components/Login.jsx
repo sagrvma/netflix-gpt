@@ -1,4 +1,9 @@
 import { useState, useRef } from "react";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { auth } from "../utils/firebase";
 import Header from "./Header";
 import "./Login.css";
 
@@ -21,6 +26,40 @@ const Login = () => {
     e.preventDefault();
     if (validateForm()) {
       console.log("Form is valid, proceeding towards submission.");
+      if (isSignUp) {
+        //Sign Up - Creating User Logic
+        createUserWithEmailAndPassword(
+          auth,
+          email.current.value,
+          password.current.value
+        )
+          .then((userCredential) => {
+            //Signedup
+            const user = userCredential.user;
+            console.log(user);
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode + " " + errorMessage);
+          });
+      } else {
+        //Sign In - Logging in User Logic
+        signInWithEmailAndPassword(
+          auth,
+          email.current.value,
+          password.current.value
+        )
+          .then((userCredential) => {
+            const user = userCredential.user;
+            console.log(user);
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode + " " + errorMessage);
+          });
+      }
     }
   };
 

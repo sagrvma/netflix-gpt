@@ -40,3 +40,12 @@ npm i react-router
 
 - Added basic login and browse components to test routing
 - Created seperate file `imageURLS.js` for image urls.
+
+npm i firebase
+npm install -g firebase-tools
+firebase login
+firebase init hosting
+firebase deploy --only hosting
+
+npm i -D @reduxjs/toolkit
+npm i react-redux
