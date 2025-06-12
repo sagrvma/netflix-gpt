@@ -6,10 +6,13 @@ import {
 import { auth } from "../utils/firebase";
 import Header from "./Header";
 import "./Login.css";
+import { useNavigate } from "react-router";
 
 const Login = () => {
   const [isSignUp, setIsSignUp] = useState(false);
   const [errors, setErrors] = useState({});
+
+  const navigate = useNavigate();
 
   const firstName = useRef(null);
   const lastName = useRef(null);
@@ -37,6 +40,7 @@ const Login = () => {
             //Signedup
             const user = userCredential.user;
             console.log(user);
+            navigate("/browse");
           })
           .catch((error) => {
             const errorCode = error.code;
@@ -53,6 +57,7 @@ const Login = () => {
           .then((userCredential) => {
             const user = userCredential.user;
             console.log(user);
+            navigate("/browse");
           })
           .catch((error) => {
             const errorCode = error.code;
