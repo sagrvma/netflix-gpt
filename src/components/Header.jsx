@@ -46,6 +46,10 @@ const Header = () => {
         navigate("/");
       }
     });
+
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   return (
