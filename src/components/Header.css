@@ -15,6 +15,14 @@
   cursor: pointer;
 }
 
+.user-nav {
+  display: flex;
+}
+.user-photo {
+  height: 50px;
+  margin-right: 1rem;
+}
+
 .signout-button {
   border: none;
   border-radius: 5px;

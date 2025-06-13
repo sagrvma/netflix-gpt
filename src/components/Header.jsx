@@ -9,6 +9,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   const user = useSelector((store) => store.user);
+  console.log(user);
 
   const handleLogOut = () => {
     signOut(auth)
@@ -25,9 +26,12 @@ const Header = () => {
     <div className="header">
       <img src={netflixHeaderLogo} className="header-logo" />
       {user && (
-        <button className="signout-button" onClick={handleLogOut}>
-          Sign Out
-        </button>
+        <div className="user-nav">
+          <img className="user-photo" src={user.photoURL} />
+          <button className="signout-button" onClick={handleLogOut}>
+            Sign Out
+          </button>
+        </div>
       )}
     </div>
   );
