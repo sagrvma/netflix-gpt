@@ -10,6 +10,7 @@ import "./Login.css";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { userAvatar } from "../utils/constants";
 
 const Login = () => {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -48,7 +49,7 @@ const Login = () => {
             return updateProfile(user, {
               displayName:
                 firstName.current.value + " " + lastName.current.value,
-              photoURL: "https://avatars.githubusercontent.com/u/76220506?v=4",
+              photoURL: userAvatar,
             });
           })
           .then(() => {

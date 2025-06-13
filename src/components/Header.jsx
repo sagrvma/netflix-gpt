@@ -26,6 +26,9 @@ const Header = () => {
   };
 
   useEffect(() => {
+    //this was earlier in app.jsx, but the navigate was a problem
+    //added this here as the header will pe present all through the app, so this is a good place for this
+    //alt try moving routing up one component so we wont have to put this here
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       //onAuthStateChange by firebase returns an unsubscribe fx
       if (user) {
