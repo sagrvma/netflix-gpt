@@ -61,7 +61,6 @@ const Login = () => {
                 photoURL: user.photoURL,
               })
             );
-            navigate("/browse");
           })
           .catch((error) => {
             setErrors({ auth: error.code + " " + error.message });
@@ -76,9 +75,6 @@ const Login = () => {
           .then((userCredential) => {
             const user = userCredential.user;
             console.log(user);
-          })
-          .then(() => {
-            navigate("/browse");
           })
           .catch((error) => {
             setErrors({ auth: error.code + " " + error.message });
