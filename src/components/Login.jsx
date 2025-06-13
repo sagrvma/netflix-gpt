@@ -8,12 +8,15 @@ import { auth } from "../utils/firebase";
 import Header from "./Header";
 import "./Login.css";
 import { useNavigate } from "react-router";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
 
 const Login = () => {
   const [isSignUp, setIsSignUp] = useState(false);
   const [errors, setErrors] = useState({});
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const firstName = useRef(null);
   const lastName = useRef(null);
@@ -29,6 +32,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
+      setErrors({});
       console.log("Form is valid, proceeding towards submission.");
       if (isSignUp) {
         //Sign Up - Creating User Logic
@@ -48,12 +52,19 @@ const Login = () => {
             });
           })
           .then(() => {
+            const user = auth.currentUser;
+            dispatch(
+              addUser({
+                uid: user.uid,
+                email: user.email,
+                displayName: user.displayName,
+                photoURL: user.photoURL,
+              })
+            );
             navigate("/browse");
           })
           .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorCode + " " + errorMessage);
+            setErrors({ auth: error.code + " " + error.message });
           });
       } else {
         //Sign In - Logging in User Logic
@@ -70,9 +81,7 @@ const Login = () => {
             navigate("/browse");
           })
           .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorCode + " " + errorMessage);
+            setErrors({ auth: error.code + " " + error.message });
           });
       }
     }
@@ -191,6 +200,10 @@ const Login = () => {
                 </p>
               )}
             </div>
+          )}
+
+          {errors.auth && (
+            <p className="validation-error-message">{errors.auth}</p>
           )}
           <button type="submit" className="login-button">
             {isSignUp ? "Sign Up" : "Sign In"}

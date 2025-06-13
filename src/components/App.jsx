@@ -14,17 +14,15 @@ const App = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         //User is signed in
-        user.reload().then(() => {
-          const { uid, email, displayName, photoURL } = user;
-          dispatch(
-            addUser({
-              uid: uid,
-              email: email,
-              displayName: displayName,
-              photoURL: photoURL,
-            })
-          );
-        });
+        const { uid, email, displayName, photoURL } = user;
+        dispatch(
+          addUser({
+            uid: uid,
+            email: email,
+            displayName: displayName,
+            photoURL: photoURL,
+          })
+        );
       } else {
         //User is signed out
         dispatch(removeUser());
