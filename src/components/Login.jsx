@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import Header from "./Header";
@@ -31,6 +32,7 @@ const Login = () => {
       console.log("Form is valid, proceeding towards submission.");
       if (isSignUp) {
         //Sign Up - Creating User Logic
+
         createUserWithEmailAndPassword(
           auth,
           email.current.value,
@@ -39,7 +41,13 @@ const Login = () => {
           .then((userCredential) => {
             //Signedup
             const user = userCredential.user;
-            console.log(user);
+            return updateProfile(user, {
+              displayName:
+                firstName.current.value + " " + lastName.current.value,
+              photoURL: "https://avatars.githubusercontent.com/u/76220506?v=4",
+            });
+          })
+          .then(() => {
             navigate("/browse");
           })
           .catch((error) => {
@@ -57,6 +65,8 @@ const Login = () => {
           .then((userCredential) => {
             const user = userCredential.user;
             console.log(user);
+          })
+          .then(() => {
             navigate("/browse");
           })
           .catch((error) => {
