@@ -3,6 +3,8 @@ const VideoTitle = ({ title, description }) => {
     <div>
       <h1>{title}</h1>
       <p>{description}</p>
+      <button>Play</button>
+      <button>More Info</button>
     </div>
   );
 };
