@@ -1,4 +1,4 @@
-import { netflixHeaderLogo } from "../utils/imageURLS";
+import { netflixHeaderLogo } from "../utils/constants";
 import "./Header.css";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
