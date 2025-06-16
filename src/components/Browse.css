@@ -1,5 +1,6 @@
 .browse {
   background-color: black;
+  color: white;
 }
 
 .video-background {
@@ -16,3 +17,5 @@
   transform: scale(1.5);
   pointer-events: none;
 }
+
+.

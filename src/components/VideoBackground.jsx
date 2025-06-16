@@ -15,17 +15,12 @@ const VideoBackground = ({ movieId }) => {
   return (
     <div className="video-background">
       <iframe
-        width="100%"
-        height="100%"
         src={
           "https://www.youtube.com/embed/" +
           trailer.key +
-          "?autoplay=1&mute=1&controls=0&showinfo=0&modestbranding=1&rel=0"
+          "?autoplay=1&mute=1&controls=0&rel=0&modestbranding=1&loop=1&playlist=" +
+          trailer.key
         }
-        title="YouTube video player"
-        frameBorder="0"
-        allow="autoplay; encrypted-media"
-        allowFullScreen
       ></iframe>
     </div>
   );
