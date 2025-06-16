@@ -32,6 +32,38 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 3rem;
-  padding-left: 2rem;
+  padding-top: 6rem;
+  padding-left: 3rem;
+}
+
+.button-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.video-title-buttons {
+  display: flex;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.play-button,
+.more-info-button {
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.more-info-button {
+  color: white;
+  background-color: rgba(84, 84, 84, 0.648);
+  border: 1px solid white;
+}
+
+.play-button:hover,
+.more-info-button:hover {
+  transform: scale(1.05);
 }
