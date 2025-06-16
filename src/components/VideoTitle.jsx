@@ -1,10 +1,10 @@
 const VideoTitle = ({ title, description }) => {
   return (
-    <div>
-      <h1>{title}</h1>
-      <p>{description}</p>
-      <button>Play</button>
-      <button>More Info</button>
+    <div className="video-title">
+      <h1 className="title">{title}</h1>
+      <p className="description">{description}</p>
+      <button className="play-button">Play</button>
+      <button className="more-info-button">More Info</button>
     </div>
   );
 };

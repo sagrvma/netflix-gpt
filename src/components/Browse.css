@@ -1,0 +1,18 @@
+.browse {
+  background-color: black;
+}
+
+.video-background {
+  /* border: 5px solid yellow; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.video-background iframe {
+  height: 80vh;
+  width: 100vw;
+  transform: scale(1.5);
+  pointer-events: none;
+}
