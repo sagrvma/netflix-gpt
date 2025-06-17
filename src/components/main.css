@@ -11,3 +11,6 @@
   padding: 0;
   font-family: "Gilroy-Bold", sans-serif;
 }
+::-webkit-scrollbar {
+  display: none;
+}

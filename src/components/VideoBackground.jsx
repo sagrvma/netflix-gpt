@@ -5,12 +5,12 @@ const VideoBackground = ({ movieId }) => {
   useMovieTrailer(movieId);
 
   const trailer = useSelector((store) => store.movies?.trailerVideo);
-  console.log(trailer);
+  // console.log(trailer);
   if (!trailer) {
     return;
   }
 
-  console.log(trailer.key);
+  // console.log(trailer.key);
 
   return (
     <div className="video-background">
