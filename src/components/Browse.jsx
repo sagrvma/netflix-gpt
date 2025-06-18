@@ -7,7 +7,7 @@ import usePopularMovies from "../hooks/usePopularMovies";
 import useTopRatedMovies from "../hooks/useTopRatedMovies";
 import useUpcomingMovies from "../hooks/useUpcomingMovies";
 import { useSelector } from "react-redux";
-import SearchPage from "./SearchPage";
+import Search from "./Search";
 
 const Browse = () => {
   useNowPlayingMovies();
@@ -22,7 +22,7 @@ const Browse = () => {
       <Header />
 
       {viewSearch ? (
-        <SearchPage />
+        <Search />
       ) : (
         <>
           <MainContainer />
