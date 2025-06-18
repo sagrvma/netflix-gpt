@@ -6,6 +6,7 @@ import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../utils/userSlice";
+import { toggleSearchView } from "../utils/searchSlice";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -23,6 +24,10 @@ const Header = () => {
         console.log(error);
         navigate("/error");
       });
+  };
+
+  const toggleSearch = () => {
+    dispatch(toggleSearchView());
   };
 
   useEffect(() => {
@@ -60,7 +65,9 @@ const Header = () => {
       <img src={netflixHeaderLogo} className="header-logo" />
       {user && (
         <div className="user-nav">
-          <button className="search-button">Search/Recommendations</button>
+          <button className="search-button" onClick={toggleSearch}>
+            Search/Recommendations
+          </button>
           <img className="user-photo" src={user.photoURL} />
           <button className="signout-button" onClick={handleLogOut}>
             Sign Out
