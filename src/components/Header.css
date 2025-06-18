@@ -18,9 +18,22 @@
 .user-nav {
   display: flex;
 }
+
+.search-button {
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: purple;
+  padding: 0.5rem 1rem;
+  font-size: 1.3rem;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
 .user-photo {
   height: 50px;
   margin-right: 1rem;
+  cursor: pointer;
 }
 
 .signout-button {
@@ -30,5 +43,5 @@
   background-color: red;
   color: white;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }

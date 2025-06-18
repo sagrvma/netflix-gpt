@@ -60,6 +60,7 @@ const Header = () => {
       <img src={netflixHeaderLogo} className="header-logo" />
       {user && (
         <div className="user-nav">
+          <button className="search-button">Search/Recommendations</button>
           <img className="user-photo" src={user.photoURL} />
           <button className="signout-button" onClick={handleLogOut}>
             Sign Out
