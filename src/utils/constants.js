@@ -14,3 +14,5 @@ export const API_OPTIONS = {
 };
 
 export const POSTER_URL = "https://image.tmdb.org/t/p/w200";
+
+export const GEMINI_API_KEY = "AIzaSyBjQXSwdNI2Rx2RVzvtQNF_LZ2uMA7y848";

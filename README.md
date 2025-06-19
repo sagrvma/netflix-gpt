@@ -49,3 +49,5 @@ firebase deploy --only hosting
 
 npm i -D @reduxjs/toolkit
 npm i react-redux
+
+npm install @google/genai
