@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import ai from "../utils/gemini";
+import useMovieSuggestions from "../hooks/useMovieSuggestions";
 
 const SearchBar = () => {
   const searchInput = useRef(null);
@@ -15,17 +16,15 @@ const SearchBar = () => {
       contents:
         "Give me a list of 5 movies for the following prompt" +
         searchInput.current.value +
-        " in the following format : Pulp Fiction, Reservoir Dogs, Django Unchained, The Hateful Eight, Kill Bill",
+        " in the following format, no other words, only the movie names : Pulp Fiction, Reservoir Dogs, Django Unchained, The Hateful Eight, Kill Bill",
     });
     console.log(response.text);
 
     const movieSuggestions = response.text.split(", ");
     console.log(movieSuggestions);
-  };
 
-  // useEffect(() => {
-  //   main();
-  // }, []);
+    useMovieSuggestions(movieSuggestions);
+  };
 
   return (
     <div className="search-bar">
