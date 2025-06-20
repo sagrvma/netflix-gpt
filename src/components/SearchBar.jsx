@@ -1,13 +1,35 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import ai from "../utils/gemini";
-import useMovieSuggestions from "../hooks/useMovieSuggestions";
+import { API_OPTIONS } from "../utils/constants";
+import { addSearchedMovies } from "../utils/searchSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const SearchBar = () => {
   const searchInput = useRef(null);
+  const dispatch = useDispatch();
+
+  const getMovieTMDB = async (movie) => {
+    const searchedMovie = await fetch(
+      "https://api.themoviedb.org/3/search/movie?query=" +
+        movie +
+        "&include_adult=false&language=en-US&page=1",
+      API_OPTIONS
+    );
+    const data = await searchedMovie.json();
+
+    const finalMovie = data.results.reduce(
+      (maxPopularityMovie, currentMovie) => {
+        return currentMovie.popularity > maxPopularityMovie.popularity
+          ? currentMovie
+          : maxPopularityMovie;
+      }
+    );
+
+    return finalMovie;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(searchInput.current.value);
   };
 
   const handleSearchClick = async () => {
@@ -18,12 +40,15 @@ const SearchBar = () => {
         searchInput.current.value +
         " in the following format, no other words, only the movie names : Pulp Fiction, Reservoir Dogs, Django Unchained, The Hateful Eight, Kill Bill",
     });
-    console.log(response.text);
 
     const movieSuggestions = response.text.split(", ");
-    console.log(movieSuggestions);
 
-    useMovieSuggestions(movieSuggestions);
+    const promiseArray = movieSuggestions.map((movie) => getMovieTMDB(movie));
+
+    const tmdbMovies = await Promise.all(promiseArray);
+    console.log(promiseArray);
+
+    dispatch(addSearchedMovies(tmdbMovies));
   };
 
   return (
